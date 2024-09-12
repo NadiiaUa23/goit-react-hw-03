@@ -1,14 +1,14 @@
 
 
 const App = () => {
-    console.log('hola');
+    
 
     return (
 <div>
   <h1 >Phonebook</h1>
-  <ContactForm />
+  {/* <ContactForm />
   <SearchBox />
-  <ContactList />
+  <ContactList /> */}
 </div>
 
     );
