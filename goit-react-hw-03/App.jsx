@@ -1,20 +1,17 @@
 import { useState } from "react";
-import allPhone from "./phonebook.json";
+import contactsgrup from "./contacts.json";
 import ContactList from "./src/components/ContactList/ContactList";
 
 
 
 
 const App = () => {
-    const [phone, setPhone] =useState([allPhone])
+    const [contacts, setPhone] = useState(contactsgrup)
 
     return (
 <div>
-  <h1 >Phonebook</h1>
-  {/* <ContactForm />
-  <SearchBox />
-   */}
-   <ContactList phone={phone}/>
+    <h1 >Phonebook</h1>
+    <ContactList contacts={contacts} />
 </div>
 
     );

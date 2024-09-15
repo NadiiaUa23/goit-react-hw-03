@@ -1,12 +1,11 @@
 import style from './Contact.module.css'
-
+import contactsgrup from "../../../contacts.json";
 
 const Contact =({ name, number}) => {
 return (
     <div>
     <li>
-    <p>{name}</p>
-        <p>{number}</p>
+    <b>{name}</b>: {number}
     </li>
     <button type="submit" className={style.btn}>Delete</button>
 </div>
