@@ -3,12 +3,20 @@ import contactsgrup from "../../../contacts.json";
 
 const Contact =({ name, number}) => {
 return (
-    <div>
-    <li>
-    <b>{name}</b>: {number}
-    </li>
-    <button type="submit" className={style.btn}>Delete</button>
-</div>
+    <div  className={style.contactItem}>
+
+    <li className={style.etm}>
+    <span className={style.contactName}>{name}</span> 
+    <span className={style.contactNumber}>{number}</span>
+
+</li>  
+<button type="submit" className={style.btn}>Delete</button>  
+ 
+    
+
+
+    </div>
+
 );
 };
 

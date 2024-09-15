@@ -13,7 +13,6 @@ const App = () => {
     <h1 >Phonebook</h1>
     <ContactList contacts={contacts} />
 </div>
-
     );
 };
 
