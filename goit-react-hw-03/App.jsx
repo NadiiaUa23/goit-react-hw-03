@@ -2,7 +2,7 @@ import { useState } from "react";
 import contactsgrup from "./contacts.json";
 import ContactList from "./src/components/ContactList/ContactList";
 import SearchBox from "./src/components/SearchBox/SearchBox";
-
+import *as Yup from "yup";
 
 
 const App = () => {
