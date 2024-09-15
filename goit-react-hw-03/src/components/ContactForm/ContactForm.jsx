@@ -35,7 +35,7 @@ const ContactForm = ({ onSubmit }) => {
   };
 
   return (
-    <div className={style.forma}> 
+   
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -69,7 +69,7 @@ const ContactForm = ({ onSubmit }) => {
         </Form>
       )}
     </Formik>
-    </div>
+   
   );
 };
 
