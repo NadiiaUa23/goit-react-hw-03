@@ -4,6 +4,7 @@ import ContactList from "./src/components/ContactList/ContactList";
 import SearchBox from "./src/components/SearchBox/SearchBox";
 import ContactForm from "./src/components/ContactForm/ContactForm";
 
+
 const App = () => {
     const [contacts, setContacts] = useState(() => {
       const savedContacts = localStorage.getItem('contacts');
@@ -11,6 +12,7 @@ const App = () => {
   }); // початковий масив контактів
     
     const [filter, setFilter] = useState(''); // стан для фільтру
+
 // для збереження контактів у localStorage після їх зміни
     useEffect(() => {
       localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -24,9 +26,12 @@ const App = () => {
           return;
         }
         setContacts(prevContacts => [...prevContacts, newContact]);
-        
-        
     };
+
+ // Функція для видалення контакту
+ const deleteContact = (contactId) => {
+  setContacts(prevContacts => prevContacts.filter(contact => contact.id !== contactId));
+};
 
 //Ця функція оновлює стан filter кожного разу, коли користувач вводить текст у пошукове поле. event.target.value — це нове значення, яке ввів користувач.
     const handleFilterChange = (event) => {
@@ -50,7 +55,7 @@ const App = () => {
     <h1 >Phonebook</h1>
     <ContactForm onSubmit={addContact} />
     <SearchBox value={filter} onChange={handleFilterChange} />
-      <ContactList contacts={visibleContacts} />
+      <ContactList contacts={visibleContacts} onDeleteContact={deleteContact}/>
 </div>
     );
 };

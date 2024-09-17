@@ -1,20 +1,16 @@
 import style from './Contact.module.css'
 import contactsgrup from "../../../contacts.json";
 
-const Contact =({ name, number}) => {
+const Contact =({ id, name, number, onDeleteContact}) => {
 return (
     <div  className={style.contactItem}>
 
-    <li className={style.etm}>
+        <li className={style.etm}>
     <span className={style.contactName}>{name}</span> 
     <span className={style.contactNumber}>{number}</span>
-
-</li>  
-<button type="submit" className={style.btn}>Delete</button>  
- 
-    
-
-
+<button type="submit" className={style.btn}onClick={() => onDeleteContact(id)}>Delete</button>  
+        </li>  
+        
     </div>
 
 );
