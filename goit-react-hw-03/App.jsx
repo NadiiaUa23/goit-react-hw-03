@@ -7,9 +7,8 @@ import ContactForm from "./src/components/ContactForm/ContactForm";
 
 const App = () => {
     const [contacts, setContacts] = useState(() => {
-      const savedContacts = localStorage.getItem('contacts');
-      return savedContacts ? JSON.parse(savedContacts) : contactsgrup;
-  }); // початковий масив контактів
+      return JSON.parse(localStorage.getItem('contacts')) || contactsgrup;
+  }); 
     
     const [filter, setFilter] = useState(''); // стан для фільтру
 
@@ -18,15 +17,17 @@ const App = () => {
       localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]); 
 
-
+// Додавання контакту
     const addContact = (newContact) => {
-        // Перевіряємо, чи контакт з таким іменем вже існує
-        if (contacts.some(contact => contact.name === newContact.name)) {
-          alert(`${newContact.name} is already in contacts.`);
-          return;
-        }
+       const duplicate = contacts.find(contact => contact.name === newContact.name);
+
+       if (duplicate) {
+        alert ('${newContact.name} is already in contacts.');
+       } els {
         setContacts(prevContacts => [...prevContacts, newContact]);
-    };
+       }
+       }
+    
 
  // Функція для видалення контакту
  const deleteContact = (contactId) => {
@@ -52,14 +53,13 @@ const App = () => {
 
     return (
 <div>
-    <h1 >Phonebook</h1>
+    <h1>Phonebook</h1>
     <ContactForm onSubmit={addContact} />
     <SearchBox value={filter} onChange={handleFilterChange} />
       <ContactList contacts={visibleContacts} onDeleteContact={deleteContact}/>
 </div>
     );
-};
-
+  };
 
 
 export default App;
